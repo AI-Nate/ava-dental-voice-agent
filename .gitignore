@@ -1,0 +1,11 @@
+.env
+*.env
+!.env.example
+frontend/config.js
+data/
+*.db
+*.db-*
+__pycache__/
+.pytest_cache/
+.venv/
+venv/

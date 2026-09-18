@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ava · Dental Voice Agent</title>
+<link rel="stylesheet" href="style.css?v=1">
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+<div id="gate" class="gate">
+  <div class="gate-card">
+    <div class="logo">🦷</div>
+    <h1>Ava</h1>
+    <p class="muted">Voice agent, CRM and scheduler for Bright Smile Dental.</p>
+    <div id="gate-body"><p class="muted">Loading…</p></div>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <nav class="nav">
+    <div class="brand"><span>🦷</span> Ava <small>voice agent</small></div>
+    <a href="#/dashboard" data-page="dashboard">📊 Dashboard</a>
+    <a href="#/scheduler" data-page="scheduler">📅 Scheduler</a>
+    <a href="#/crm" data-page="crm">👥 CRM</a>
+    <a href="#/settings" data-page="settings">⚙️ Settings</a>
+    <div class="nav-foot">
+      <div id="nav-user" class="muted small"></div>
+      <button id="sign-out" class="btn ghost small">Sign out</button>
+    </div>
+  </nav>
+  <main id="page" class="page"></main>
+</div>
+
+<aside id="call-panel" class="call-panel hidden">
+  <header>
+    <div>
+      <div id="call-title" class="call-title">Call</div>
+      <div id="call-sub" class="muted small"></div>
+    </div>
+    <div class="call-meta"><span id="call-status" class="pill">idle</span> <span id="call-timer" class="mono">0:00</span></div>
+  </header>
+  <div class="call-body">
+    <section>
+      <h4>Live transcript</h4>
+      <div id="call-transcript" class="transcript"></div>
+    </section>
+    <section>
+      <h4>Tool events</h4>
+      <div id="call-tools" class="tool-log"></div>
+    </section>
+  </div>
+  <form id="call-say" class="call-say">
+    <input id="call-text" placeholder="Type as the patient (optional)…" autocomplete="off">
+    <button class="btn small">Send</button>
+  </form>
+  <footer>
+    <button id="call-mute" class="btn ghost small">Mute mic</button>
+    <label class="small muted"><input type="checkbox" id="call-autonext"> Auto-advance queue</label>
+    <button id="call-hangup" class="btn danger">Hang up</button>
+  </footer>
+</aside>
+
+<div id="modal" class="modal hidden"><div class="modal-card" id="modal-card"></div></div>
+<div id="toast" class="toast hidden"></div>
+
+<script src="config.js"></script>
+<script src="api.js?v=1"></script>
+<script src="call.js?v=1"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
